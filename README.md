@@ -1,3 +1,14 @@
+Objetivo
+Desenvolver um entendimento aprofundado sobre a criação e funcionamento de analisadores
+léxicos (lexers ou scanners) através da análise crítica e comparação de diferentes analisadores
+léxicos implementados com a ferramenta ANTLR4.
+
+Importante: Neste trabalho, o foco deve estar exclusivamente nas regras do analisador léxico.
+Podem ser utilizados analisadores sintáticos (parsers), compiladores e interpretadores completos,
+desde que a análise se concentre apenas nas regras do analisador léxico.
+
+
+
 # LinguagensDeProg
 Trabalho 1 de Linguagens de Programação - Lexers
 
