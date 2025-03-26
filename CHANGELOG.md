@@ -98,4 +98,4 @@ fragment BinaryIntegerLiteral: BinaryNumeral IntegerTypeSuffix?;
 fragment IntegerTypeSuffix: [lL];
 
 
-### REAL (BOOLEANO)
+### REAL 
