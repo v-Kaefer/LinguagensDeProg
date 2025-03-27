@@ -131,15 +131,15 @@ Exemplos:
 
 Aceitos:
 
-"Hello World"
+```"Hello World"```
 
-u8"Olá, mundo!"
+```u8"Olá, mundo!"```
 
 Rejeitados:
 
-"String sem fechamento (falta a aspa de fechamento)
+```"String sem fechamento (falta a aspa de fechamento)```
 
-"String com caractere inválido \n" (se a quebra de linha não for tratada ou se houver erro na sequência de escape)
+```"String com caractere inválido \n" (se a quebra de linha não for tratada ou se houver erro na sequência de escape)```
 
 
 ### Lexer em Java (versão 20):
@@ -221,15 +221,15 @@ Exemplos:
 
 Aceitos:
 
-123
+```123```
 
-0x1A3F
+```0x1A3F```
 
 Rejeitados:
 
-0129 (se considerado inválido como octal, dependendo da implementação)
+```0129``` (se considerado inválido como octal, dependendo da implementação)
 
-123abc (contém caracteres inválidos para um literal numérico)
+```123abc``` (contém caracteres inválidos para um literal numérico)
 
 ## Lexer em Java (versão 20):
 
@@ -262,15 +262,15 @@ Exemplos:
 
 Aceitos:
 
-123
+```123```
 
-0b1010
+```0b1010```
 
 Rejeitados:
 
-0xGHI (contém caracteres inválidos para hexadecimal)
+```0xGHI``` (contém caracteres inválidos para hexadecimal)
 
-0129 (se os dígitos para octal não forem válidos)
+```0129``` (se os dígitos para octal não forem válidos)
 
 # Comparação:
 
@@ -289,5 +289,75 @@ Sufixos:
 Em Java, o sufixo para literais (por exemplo, L) é definido de forma explícita.
 
 Em C, os sufixos podem ser mais variados (como U, L, UL, etc.) e a regra completa provavelmente engloba esses detalhes, mas não foi mostrada completamente no exemplo.
+
+
+# C. Regra para Números Reais (Real / FloatingConstant)
+## Lexer em C:
+
+Definição:
+
+Na regra Constant, há a opção FloatingConstant.
+
+Embora o exemplo não mostre a implementação completa, geralmente a regra para números reais em C aceita:
+
+Notação decimal com ponto (ex.: 3.14)
+
+Notação exponencial (ex.: 2.5e10)
+
+Exemplos:
+
+Aceitos:
+
+```3.14```
+
+```2.5e10```
+
+Rejeitados:
+
+```3.14.15``` (formatação inválida)
+
+e10 (falta a parte numérica antes do expoente)
+
+## Lexer em Java:
+
+Definição:
+
+O trecho fornecido não inclui a regra para números reais (floating point literals). No entanto, seguindo as especificações da linguagem Java, espera-se que:
+
+Literais reais possam ser escritos em forma decimal (ex.: 3.14, 0.5) ou em notação exponencial (ex.: 1.0e-3), com ou sem sufixos (como f, F, d ou D).
+
+Exemplos (esperados):
+
+Aceitos:
+
+```3.14```
+
+```1.0e-3```
+
+Rejeitados:
+
+```3..14``` (erro de formatação)
+
+```1.0e``` (expoente incompleto)
+
+## Comparação:
+
+Semelhanças:
+
+Em ambas as linguagens, os literais de ponto flutuante (reais) aceitam a notação com ponto decimal e notação exponencial.
+
+As regras devem garantir que a sequência de dígitos e símbolos esteja no formato correto para evitar ambiguidade com inteiros.
+
+Diferenças:
+
+Sufixos e Precisão:
+
+Em Java, há uma diferenciação com sufixos (f, F, d, D) que indicam o tipo do literal (float ou double).
+
+Em C, a regra de FloatingConstant pode incluir sufixos como f ou l (minha suposição baseada nas convenções da linguagem), mas isso não foi explicitado no trecho fornecido.
+
+Fragmentação:
+
+O lexer Java, em geral, tem regras bem fragmentadas e específicas para cada formato numérico, enquanto no exemplo em C a regra faz parte de um grupo maior (Constant) que agrega diferentes tipos de constantes.
 
 
